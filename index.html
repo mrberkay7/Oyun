@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> SOS OYUNU DEVELOPER BERKAY</title>
+    <title>XOX ULTIMATE | DEVELOPER BERKAY</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Orbitron', monospace;
+            font-family: 'Orbitron', 'Arial', sans-serif;
         }
 
         body {
-            background: radial-gradient(circle at center, #0c0c0c 0%, #000 100%);
+            background: radial-gradient(circle at center, #0a0a2a 0%, #000013 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #00ff88;
+            color: #fff;
             overflow: hidden;
         }
 
@@ -26,15 +26,15 @@
             position: relative;
             width: 100%;
             max-width: 800px;
-            padding: 30px;
+            padding: 20px;
         }
 
         .cyber-border {
             position: relative;
-            background: linear-gradient(45deg, #00ff88, #0088ff, #ff0088);
+            background: linear-gradient(45deg, #ff0080, #8000ff, #0080ff);
             padding: 3px;
-            border-radius: 15px;
-            animation: borderGlow 3s linear infinite;
+            border-radius: 20px;
+            animation: borderGlow 4s linear infinite;
         }
 
         @keyframes borderGlow {
@@ -43,30 +43,30 @@
         }
 
         .main-content {
-            background: #0a0a0a;
+            background: #0a0a1a;
             padding: 40px;
-            border-radius: 12px;
+            border-radius: 17px;
             position: relative;
             overflow: hidden;
         }
 
-        .cyber-grid {
+        .cyber-grid-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(90deg, rgba(0,255,136,0.1) 1px, transparent 1px),
-                linear-gradient(rgba(0,255,136,0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
+                linear-gradient(90deg, rgba(255,0,128,0.1) 1px, transparent 1px),
+                linear-gradient(rgba(255,0,128,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
         }
 
         @keyframes gridMove {
             0% { transform: translate(0, 0); }
-            100% { transform: translate(20px, 20px); }
+            100% { transform: translate(30px, 30px); }
         }
 
         .header {
@@ -77,80 +77,115 @@
 
         .cyber-title {
             font-size: 3.5em;
-            background: linear-gradient(45deg, #00ff88, #0088ff);
+            background: linear-gradient(45deg, #ff0080, #8000ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            text-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
             margin-bottom: 10px;
             letter-spacing: 3px;
         }
 
-        .creator {
-            color: #0088ff;
-            font-size: 1.2em;
+        .developer {
+            color: #0080ff;
+            font-size: 1.3em;
             margin-bottom: 20px;
-            text-shadow: 0 0 15px #0088ff;
+            text-shadow: 0 0 15px #0080ff;
+        }
+
+        .game-mode-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .mode-btn {
+            background: rgba(255, 0, 128, 0.2);
+            border: 2px solid #ff0080;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .mode-btn.active {
+            background: rgba(255, 0, 128, 0.4);
+            box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+            transform: scale(1.05);
+        }
+
+        .mode-btn:hover {
+            transform: translateY(-2px);
         }
 
         .game-info {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
-            gap: 20px;
+            gap: 30px;
             margin-bottom: 30px;
             align-items: center;
         }
 
         .player-card {
-            background: rgba(0, 255, 136, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #00ff88;
+            background: rgba(255, 0, 128, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #ff0080;
             text-align: center;
             transition: all 0.3s ease;
+            min-width: 180px;
         }
 
         .player-card.active {
-            background: rgba(0, 255, 136, 0.2);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            background: rgba(255, 0, 128, 0.3);
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.4);
             transform: scale(1.05);
         }
 
         .player-name {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: #00ff88;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #ff0080;
+            text-shadow: 0 0 10px #ff0080;
         }
 
         .player-score {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #fff;
-            text-shadow: 0 0 10px #00ff88;
+            text-shadow: 0 0 15px #ff0080;
         }
 
         .vs-text {
-            font-size: 1.5em;
-            color: #ff0088;
-            text-shadow: 0 0 15px #ff0088;
+            font-size: 1.8em;
+            color: #8000ff;
+            text-shadow: 0 0 20px #8000ff;
         }
 
         .game-board {
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            grid-gap: 2px;
-            background: rgba(0, 255, 136, 0.2);
-            padding: 10px;
-            border-radius: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            background: rgba(128, 0, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
             margin-bottom: 30px;
-            border: 1px solid #00ff88;
+            border: 2px solid #8000ff;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cell {
             aspect-ratio: 1;
-            background: rgba(10, 10, 10, 0.8);
+            background: rgba(10, 10, 26, 0.8);
+            border: 2px solid rgba(128, 0, 255, 0.5);
+            border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5em;
+            font-size: 3em;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -159,89 +194,88 @@
         }
 
         .cell:hover {
-            background: rgba(0, 255, 136, 0.1);
+            background: rgba(128, 0, 255, 0.2);
             transform: scale(1.05);
+            border-color: #8000ff;
         }
 
-        .cell.s {
-            color: #0088ff;
-            text-shadow: 0 0 15px #0088ff;
-            animation: letterPulse 2s infinite;
+        .cell.x {
+            color: #ff0080;
+            text-shadow: 0 0 20px #ff0080;
         }
 
         .cell.o {
-            color: #ff0088;
-            text-shadow: 0 0 15px #ff0088;
-            animation: letterPulse 2s infinite;
+            color: #0080ff;
+            text-shadow: 0 0 20px #0080ff;
         }
 
-        @keyframes letterPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .sos-line {
+        .winning-line {
             position: absolute;
-            background: linear-gradient(90deg, transparent, #00ff88, transparent);
-            height: 3px;
-            animation: sosGlow 2s infinite;
+            background: linear-gradient(90deg, transparent, #00ff80, transparent);
+            height: 4px;
+            animation: lineGlow 2s infinite;
             z-index: 1;
         }
 
-        @keyframes sosGlow {
-            0%, 100% { opacity: 0.5; }
+        @keyframes lineGlow {
+            0%, 100% { opacity: 0.7; }
             50% { opacity: 1; }
         }
 
         .controls {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 20px;
+            margin-bottom: 25px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cyber-btn {
-            background: linear-gradient(45deg, #0088ff, #00ff88);
+            background: linear-gradient(45deg, #ff0080, #8000ff);
             border: none;
-            padding: 15px;
-            border-radius: 8px;
-            color: #000;
+            padding: 18px;
+            border-radius: 12px;
+            color: #fff;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-size: 1.1em;
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.3);
         }
 
         .cyber-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 128, 0.5);
         }
 
         .cyber-btn.secondary {
-            background: linear-gradient(45deg, #ff0088, #ff8800);
+            background: linear-gradient(45deg, #0080ff, #00ff80);
         }
 
         .message-container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #0088ff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #0080ff;
             text-align: center;
-            min-height: 60px;
+            min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .message {
-            font-size: 1.3em;
-            color: #00ff88;
-            text-shadow: 0 0 10px #00ff88;
+            font-size: 1.4em;
+            color: #00ff80;
+            text-shadow: 0 0 15px #00ff80;
         }
 
         .winning {
-            animation: winFlash 0.6s infinite;
+            animation: winFlash 0.8s infinite;
         }
 
         @keyframes winFlash {
@@ -251,12 +285,12 @@
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00ff88;
+            width: 6px;
+            height: 6px;
+            background: #ff0080;
             border-radius: 50%;
             pointer-events: none;
-            animation: particleFloat 3s ease-out forwards;
+            animation: particleFloat 2s ease-out forwards;
         }
 
         @keyframes particleFloat {
@@ -270,16 +304,24 @@
             }
         }
 
-        .level-indicator {
+        .difficulty {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 0, 136, 0.2);
+            background: rgba(0, 128, 255, 0.2);
             padding: 10px 20px;
             border-radius: 20px;
-            border: 1px solid #ff0088;
-            color: #ff0088;
+            border: 1px solid #0080ff;
+            color: #0080ff;
             font-size: 0.9em;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            color: #8000ff;
+            font-size: 1.1em;
         }
     </style>
 </head>
@@ -287,30 +329,35 @@
     <div class="cyber-container">
         <div class="cyber-border">
             <div class="main-content">
-                <div class="cyber-grid"></div>
-                <div class="level-indicator">SEVİYE: PRO</div>
+                <div class="cyber-grid-bg"></div>
+                <div class="difficulty" id="difficulty">ZORLUK: AKILLI</div>
                 
                 <div class="header">
-                    <h1 class="cyber-title">SOS ULTIMATE</h1>
-                    <div class="creator">YAPIMCI: BERKAY</div>
+                    <h1 class="cyber-title">XOX ULTIMATE</h1>
+                    <div class="developer">DEVELOPER: BERKAY</div>
+                </div>
+
+                <div class="game-mode-selector">
+                    <button class="mode-btn active" onclick="setGameMode('pvp')">İKİ OYUNCULU</button>
+                    <button class="mode-btn" onclick="setGameMode('ai')">BİLGİSAYARA KARŞI</button>
                 </div>
 
                 <div class="game-info">
-                    <div class="player-card" id="player1Card">
-                        <div class="player-name">OYUNCU 1 (S)</div>
-                        <div class="player-score" id="score1">0</div>
+                    <div class="player-card active" id="playerXCard">
+                        <div class="player-name">OYUNCU X</div>
+                        <div class="player-score" id="scoreX">0</div>
                     </div>
                     
                     <div class="vs-text">VS</div>
                     
-                    <div class="player-card" id="player2Card">
-                        <div class="player-name">OYUNCU 2 (O)</div>
-                        <div class="player-score" id="score2">0</div>
+                    <div class="player-card" id="playerOCard">
+                        <div class="player-name" id="opponentName">OYUNCU O</div>
+                        <div class="player-score" id="scoreO">0</div>
                     </div>
                 </div>
 
                 <div class="game-board" id="gameBoard">
-                    <!-- 8x8 grid JavaScript ile oluşturulacak -->
+                    <!-- 3x3 grid JavaScript ile oluşturulacak -->
                 </div>
 
                 <div class="controls">
@@ -319,28 +366,41 @@
                 </div>
 
                 <div class="message-container">
-                    <div class="message" id="message">OYUNCU 1 (S) SIRASI</div>
+                    <div class="message" id="message">X OYUNCUSU SIRASI</div>
+                </div>
+
+                <div class="game-stats">
+                    <div>Galibiyet: <span id="wins">0</span></div>
+                    <div>Beraberlik: <span id="draws">0</span></div>
+                    <div>Maç: <span id="total">0</span></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        const BOARD_SIZE = 8;
-        let currentPlayer = 1; // 1: S, 2: O
-        let gameBoard = Array(BOARD_SIZE * BOARD_SIZE).fill('');
+        let currentPlayer = 'X';
+        let gameBoard = ['', '', '', '', '', '', '', '', ''];
         let gameActive = true;
-        let score1 = 0;
-        let score2 = 0;
-        let sosLines = [];
+        let gameMode = 'pvp'; // 'pvp' veya 'ai'
+        let scoreX = 0;
+        let scoreO = 0;
+        let wins = 0;
+        let draws = 0;
+        let totalGames = 0;
+        
+        const winningConditions = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Yatay
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Dikey
+            [0, 4, 8], [2, 4, 6] // Çapraz
+        ];
 
         // Oyun tahtasını oluştur
         function initializeBoard() {
             const gameBoardElement = document.getElementById('gameBoard');
             gameBoardElement.innerHTML = '';
-            gameBoardElement.style.gridTemplateColumns = `repeat(${BOARD_SIZE}, 1fr)`;
-
-            for (let i = 0; i < BOARD_SIZE * BOARD_SIZE; i++) {
+            
+            for (let i = 0; i < 9; i++) {
                 const cell = document.createElement('div');
                 cell.className = 'cell';
                 cell.setAttribute('data-index', i);
@@ -351,189 +411,186 @@
             updatePlayerCards();
         }
 
+        // Oyun modunu ayarla
+        function setGameMode(mode) {
+            gameMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const opponentName = document.getElementById('opponentName');
+            if (mode === 'ai') {
+                opponentName.textContent = 'BİLGİSAYAR';
+                document.getElementById('difficulty').textContent = 'ZORLUK: AKILLI';
+            } else {
+                opponentName.textContent = 'OYUNCU O';
+                document.getElementById('difficulty').textContent = 'ZORLUK: İNSAN';
+            }
+            
+            resetGame();
+        }
+
         // Hücre tıklama
         function cellClicked(index) {
             if (gameBoard[index] !== '' || !gameActive) return;
 
-            const letter = currentPlayer === 1 ? 'S' : 'O';
-            gameBoard[index] = letter;
+            makeMove(index, currentPlayer);
             
-            // Partikül efekti
+            if (gameActive && gameMode === 'ai' && currentPlayer === 'O') {
+                setTimeout(computerMove, 800);
+            }
+        }
+
+        // Hamle yap
+        function makeMove(index, player) {
+            gameBoard[index] = player;
             createParticles(index);
-            
             updateBoard();
             
-            // SOS kontrolü
-            const newSOS = checkSOS(index, letter);
-            if (newSOS.length > 0) {
-                sosLines.push(...newSOS);
-                drawSOSLines(newSOS);
-                
-                if (currentPlayer === 1) {
-                    score1 += newSOS.length;
-                } else {
-                    score2 += newSOS.length;
-                }
-                
-                updateScores();
-                
-                if (newSOS.length > 0) {
-                    document.getElementById('message').textContent = 
-                        `OYUNCU ${currentPlayer} ${newSOS.length} SOS YAPTI!`;
-                    document.getElementById('message').classList.add('winning');
-                    setTimeout(() => {
-                        document.getElementById('message').classList.remove('winning');
-                    }, 2000);
-                }
-                
-                // SOS yapan oyuncu tekrar oynar
+            if (checkWinner()) {
+                endGame(player);
                 return;
             }
             
-            // Sıra değişimi
-            currentPlayer = currentPlayer === 1 ? 2 : 1;
+            if (checkDraw()) {
+                endGame('draw');
+                return;
+            }
+            
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
             updatePlayerCards();
             document.getElementById('message').textContent = 
-                `OYUNCU ${currentPlayer} (${currentPlayer === 1 ? 'S' : 'O'}) SIRASI`;
+                `${currentPlayer} OYUNCUSU SIRASI`;
+        }
+
+        // Bilgisayar hamlesi
+        function computerMove() {
+            if (!gameActive) return;
+
+            let move;
             
-            // Oyun bitiş kontrolü
-            if (isBoardFull()) {
-                endGame();
+            // Kazanma fırsatı kontrolü
+            move = findWinningMove('O');
+            if (move === -1) {
+                // Savunma - rakibin kazanmasını engelle
+                move = findWinningMove('X');
+            }
+            if (move === -1) {
+                // Merkez kontrolü
+                if (gameBoard[4] === '') {
+                    move = 4;
+                }
+            }
+            if (move === -1) {
+                // Köşeler
+                const corners = [0, 2, 6, 8];
+                const availableCorners = corners.filter(index => gameBoard[index] === '');
+                if (availableCorners.length > 0) {
+                    move = availableCorners[Math.floor(Math.random() * availableCorners.length)];
+                }
+            }
+            if (move === -1) {
+                // Rastgele hamle
+                const availableMoves = gameBoard.map((cell, index) => cell === '' ? index : -1).filter(index => index !== -1);
+                move = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+            }
+            
+            if (move !== -1) {
+                makeMove(move, 'O');
             }
         }
 
-        // SOS kontrolü
-        function checkSOS(index, letter) {
-            const newSOS = [];
-            const row = Math.floor(index / BOARD_SIZE);
-            const col = index % BOARD_SIZE;
-
-            if (letter === 'S') {
-                // S harfi için O harflerini kontrol et
-                const directions = [
-                    [-1, -1], [-1, 0], [-1, 1],
-                    [0, -1],         [0, 1],
-                    [1, -1],  [1, 0], [1, 1]
-                ];
-
-                for (const [dr, dc] of directions) {
-                    const oRow = row + dr;
-                    const oCol = col + dc;
-                    const sRow = row + 2 * dr;
-                    const sCol = col + 2 * dc;
-
-                    if (isValidPosition(oRow, oCol) && isValidPosition(sRow, sCol)) {
-                        const oIndex = oRow * BOARD_SIZE + oCol;
-                        const sIndex = sRow * BOARD_SIZE + sCol;
-                        
-                        if (gameBoard[oIndex] === 'O' && gameBoard[sIndex] === 'S') {
-                            newSOS.push({
-                                start: index,
-                                middle: oIndex,
-                                end: sIndex,
-                                direction: [dr, dc]
-                            });
-                        }
-                    }
-                }
-            } else if (letter === 'O') {
-                // O harfi için S-O-S pattern'ini kontrol et
-                const directions = [
-                    [-1, -1], [-1, 0], [-1, 1],
-                    [0, -1],         [0, 1],
-                    [1, -1],  [1, 0], [1, 1]
-                ];
-
-                for (const [dr, dc] of directions) {
-                    const s1Row = row - dr;
-                    const s1Col = col - dc;
-                    const s2Row = row + dr;
-                    const s2Col = col + dc;
-
-                    if (isValidPosition(s1Row, s1Col) && isValidPosition(s2Row, s2Col)) {
-                        const s1Index = s1Row * BOARD_SIZE + s1Col;
-                        const s2Index = s2Row * BOARD_SIZE + s2Col;
-                        
-                        if (gameBoard[s1Index] === 'S' && gameBoard[s2Index] === 'S') {
-                            newSOS.push({
-                                start: s1Index,
-                                middle: index,
-                                end: s2Index,
-                                direction: [dr, dc]
-                            });
-                        }
-                    }
+        // Kazanma hamlesi bul
+        function findWinningMove(player) {
+            for (let condition of winningConditions) {
+                const [a, b, c] = condition;
+                const values = [gameBoard[a], gameBoard[b], gameBoard[c]];
+                const emptyIndex = condition.find(index => gameBoard[index] === '');
+                
+                if (values.filter(v => v === player).length === 2 && emptyIndex !== undefined) {
+                    return emptyIndex;
                 }
             }
-
-            return newSOS;
+            return -1;
         }
 
-        // Geçerli pozisyon kontrolü
-        function isValidPosition(row, col) {
-            return row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE;
+        // Kazanan kontrolü
+        function checkWinner() {
+            for (let condition of winningConditions) {
+                const [a, b, c] = condition;
+                if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+                    drawWinningLine(condition);
+                    return true;
+                }
+            }
+            return false;
         }
 
-        // SOS çizgilerini çiz
-        function drawSOSLines(sosArray) {
-            sosArray.forEach(sos => {
-                const line = document.createElement('div');
-                line.className = 'sos-line';
-                
-                const startCell = document.querySelector(`[data-index="${sos.start}"]`);
-                const endCell = document.querySelector(`[data-index="${sos.end}"]`);
-                
-                const startRect = startCell.getBoundingClientRect();
-                const endRect = endCell.getBoundingClientRect();
-                
-                const boardRect = document.getElementById('gameBoard').getBoundingClientRect();
-                
-                const startX = startRect.left + startRect.width / 2 - boardRect.left;
-                const startY = startRect.top + startRect.height / 2 - boardRect.top;
-                const endX = endRect.left + endRect.width / 2 - boardRect.left;
-                const endY = endRect.top + endRect.height / 2 - boardRect.top;
-                
-                const length = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
-                const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
-                
-                line.style.width = length + 'px';
-                line.style.left = startX + 'px';
-                line.style.top = startY + 'px';
-                line.style.transform = `rotate(${angle}deg)`;
-                line.style.transformOrigin = '0 0';
-                
-                document.getElementById('gameBoard').appendChild(line);
-            });
+        // Kazanan çizgiyi çiz
+        function drawWinningLine(condition) {
+            const line = document.createElement('div');
+            line.className = 'winning-line';
+            
+            const startCell = document.querySelector(`[data-index="${condition[0]}"]`);
+            const endCell = document.querySelector(`[data-index="${condition[2]}"]`);
+            
+            const startRect = startCell.getBoundingClientRect();
+            const endRect = endCell.getBoundingClientRect();
+            
+            const boardRect = document.getElementById('gameBoard').getBoundingClientRect();
+            
+            const startX = startRect.left + startRect.width / 2 - boardRect.left;
+            const startY = startRect.top + startRect.height / 2 - boardRect.top;
+            const endX = endRect.left + endRect.width / 2 - boardRect.left;
+            const endY = endRect.top + endRect.height / 2 - boardRect.top;
+            
+            const length = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+            const angle = Math.atan2(endY - startY, endX - startX) * 180 / Math.PI;
+            
+            line.style.width = length + 'px';
+            line.style.left = startX + 'px';
+            line.style.top = startY + 'px';
+            line.style.transform = `rotate(${angle}deg)`;
+            line.style.transformOrigin = '0 0';
+            
+            document.getElementById('gameBoard').appendChild(line);
         }
 
-        // Tahta doluluk kontrolü
-        function isBoardFull() {
+        // Beraberlik kontrolü
+        function checkDraw() {
             return gameBoard.every(cell => cell !== '');
         }
 
         // Oyunu bitir
-        function endGame() {
+        function endGame(result) {
             gameActive = false;
-            let winnerText = '';
+            totalGames++;
             
-            if (score1 > score2) {
-                winnerText = 'OYUNCU 1 KAZANDI!';
-            } else if (score2 > score1) {
-                winnerText = 'OYUNCU 2 KAZANDI!';
+            let message = '';
+            if (result === 'X') {
+                message = 'X OYUNCUSU KAZANDI!';
+                scoreX++;
+                wins++;
+            } else if (result === 'O') {
+                message = 'O OYUNCUSU KAZANDI!';
+                scoreO++;
             } else {
-                winnerText = 'BERABERE!';
+                message = 'BERABERE!';
+                draws++;
             }
             
-            document.getElementById('message').textContent = winnerText;
+            document.getElementById('message').textContent = message;
             document.getElementById('message').classList.add('winning');
+            
+            updateScores();
+            updateStats();
         }
 
-        // Partikül efekti oluştur
+        // Partikül efekti
         function createParticles(index) {
             const cell = document.querySelector(`[data-index="${index}"]`);
             const rect = cell.getBoundingClientRect();
             
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 12; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 
@@ -544,18 +601,19 @@
                 particle.style.top = y + 'px';
                 
                 const angle = Math.random() * Math.PI * 2;
-                const distance = 50 + Math.random() * 100;
+                const distance = 40 + Math.random() * 80;
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
                 
                 particle.style.setProperty('--tx', tx + 'px');
                 particle.style.setProperty('--ty', ty + 'px');
                 
+                const color = currentPlayer === 'X' ? '#ff0080' : '#0080ff';
+                particle.style.background = color;
+                
                 document.body.appendChild(particle);
                 
-                setTimeout(() => {
-                    particle.remove();
-                }, 3000);
+                setTimeout(() => particle.remove(), 2000);
             }
         }
 
@@ -564,39 +622,45 @@
             const cells = document.querySelectorAll('.cell');
             cells.forEach((cell, index) => {
                 cell.textContent = gameBoard[index];
-                if (gameBoard[index] === 'S') {
-                    cell.classList.add('s');
+                if (gameBoard[index] === 'X') {
+                    cell.classList.add('x');
                     cell.classList.remove('o');
                 } else if (gameBoard[index] === 'O') {
                     cell.classList.add('o');
-                    cell.classList.remove('s');
+                    cell.classList.remove('x');
                 } else {
-                    cell.classList.remove('s', 'o');
+                    cell.classList.remove('x', 'o');
                 }
             });
         }
 
         // Skorları güncelle
         function updateScores() {
-            document.getElementById('score1').textContent = score1;
-            document.getElementById('score2').textContent = score2;
+            document.getElementById('scoreX').textContent = scoreX;
+            document.getElementById('scoreO').textContent = scoreO;
+        }
+
+        // İstatistikleri güncelle
+        function updateStats() {
+            document.getElementById('wins').textContent = wins;
+            document.getElementById('draws').textContent = draws;
+            document.getElementById('total').textContent = totalGames;
         }
 
         // Oyuncu kartlarını güncelle
         function updatePlayerCards() {
-            document.getElementById('player1Card').classList.toggle('active', currentPlayer === 1);
-            document.getElementById('player2Card').classList.toggle('active', currentPlayer === 2);
+            document.getElementById('playerXCard').classList.toggle('active', currentPlayer === 'X');
+            document.getElementById('playerOCard').classList.toggle('active', currentPlayer === 'O');
         }
 
         // Oyunu sıfırla
         function resetGame() {
-            gameBoard = Array(BOARD_SIZE * BOARD_SIZE).fill('');
+            gameBoard = ['', '', '', '', '', '', '', '', ''];
             gameActive = true;
-            currentPlayer = 1;
-            sosLines = [];
+            currentPlayer = 'X';
             
-            document.querySelectorAll('.sos-line').forEach(line => line.remove());
-            document.getElementById('message').textContent = 'OYUNCU 1 (S) SIRASI';
+            document.querySelectorAll('.winning-line').forEach(line => line.remove());
+            document.getElementById('message').textContent = 'X OYUNCUSU SIRASI';
             document.getElementById('message').classList.remove('winning');
             
             updateBoard();
@@ -605,16 +669,21 @@
 
         // Skorları sıfırla
         function resetScores() {
-            score1 = 0;
-            score2 = 0;
+            scoreX = 0;
+            scoreO = 0;
+            wins = 0;
+            draws = 0;
+            totalGames = 0;
             updateScores();
+            updateStats();
             resetGame();
         }
 
-        // Sayfa yüklendiğinde oyunu başlat
+        // Sayfa yüklendiğinde
         window.onload = function() {
             initializeBoard();
             updateScores();
+            updateStats();
         };
     </script>
 </body>
